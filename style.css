@@ -1,0 +1,1907 @@
+:root {
+    --bg: #f8f8f8;
+    --white: #ffffff;
+    --text: #111111;
+    --muted: #666666;
+    --purple: #7047e8;
+    --purple-dark: #28145c;
+    --purple-light: #eee9ff;
+    --border: #e7e7e7;
+    --shadow: 0 18px 50px rgba(38, 24, 83, 0.08);
+    --radius: 22px;
+    /* Altura do cabeçalho */
+    --header-height: 92px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+button {
+    border: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container {
+    width: min(1120px, calc(100% - 80px));
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+    height: var(--header-height);
+    width: 100%;
+
+    padding: 0 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+
+    background: rgba(248, 248, 248, 0.92);
+    backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.logo {
+    font-family: "Montserrat", sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--purple);
+}
+
+
+/* =========================================================
+   MENU
+========================================================= */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.navbar a {
+    position: relative;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #555;
+
+    padding: 6px 0;
+
+    transition: 0.3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--text);
+}
+
+.navbar a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--purple);
+
+    transition: 0.3s;
+}
+
+.navbar a:hover::after,
+.navbar a.active::after {
+    width: 100%;
+}
+
+
+/* =========================================================
+   BOTÃO CV
+========================================================= */
+
+.header-cv {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 11px 18px;
+
+    border-radius: 11px;
+
+    background: var(--purple-dark);
+    color: #fff;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.header-cv:hover {
+    background: var(--purple);
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   MENU MOBILE
+========================================================= */
+
+.menu-toggle {
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    background: transparent;
+
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+
+    width: 26px;
+    height: 2px;
+
+    background: var(--text);
+
+    margin: 5px auto;
+
+    transition: 0.3s;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* =========================================================
+   HERO / INÍCIO
+========================================================= */
+
+.hero {
+    min-height: calc(100vh - var(--header-height));
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    padding: 50px 0 70px;
+}
+
+.hero-container {
+    width: min(1120px, calc(100% - 80px));
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 0.9fr;
+
+    align-items: center;
+
+    gap: 45px;
+
+    min-height: calc(100vh - var(--header-height) - 80px);
+}
+
+.hero-content {
+    padding-left: 15px;
+
+    animation: fadeUp 0.8s ease both;
+}
+
+.hero-small {
+    display: block;
+
+    color: var(--purple);
+
+    font-size: 16px;
+    font-weight: 700;
+
+    margin-bottom: 16px;
+}
+
+.hero h1 {
+    font-family: "Montserrat", sans-serif;
+
+    font-size: clamp(55px, 7vw, 88px);
+
+    line-height: 0.94;
+
+    letter-spacing: -5px;
+
+    font-weight: 800;
+}
+
+.hero h1 span {
+    color: var(--purple);
+}
+
+.hero h2 {
+    margin-top: 25px;
+
+    font-size: clamp(22px, 2.5vw, 30px);
+
+    font-weight: 700;
+}
+
+.hero h2 span {
+    color: var(--purple);
+}
+
+.hero-content > p {
+    max-width: 500px;
+
+    margin-top: 18px;
+
+    color: var(--muted);
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   BOTÕES HERO
+========================================================= */
+
+.hero-buttons {
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 27px;
+
+    flex-wrap: wrap;
+}
+
+.btn {
+    min-height: 46px;
+
+    padding: 0 22px;
+
+    border-radius: 11px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: var(--purple);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: var(--purple-dark);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border: 1px solid var(--border);
+
+    background: #fff;
+}
+
+.btn-outline:hover {
+    border-color: var(--purple);
+
+    color: var(--purple);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   REDES SOCIAIS
+========================================================= */
+
+.socials {
+    display: flex;
+
+    gap: 9px;
+
+    margin-top: 28px;
+}
+
+.socials a {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border: 1px solid var(--border);
+
+    background: #fff;
+
+    font-size: 16px;
+
+    transition: 0.3s;
+}
+
+.socials a:hover {
+    background: var(--purple);
+
+    border-color: var(--purple);
+
+    color: #fff;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   IMAGEM DO HERO
+========================================================= */
+
+.hero-image-area {
+    position: relative;
+
+    min-height: 520px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.circle-bg {
+    position: absolute;
+
+    width: min(450px, 80%);
+
+    aspect-ratio: 1;
+
+    background: linear-gradient(
+        145deg,
+        #7858f0,
+        #4f30c9
+    );
+
+    border-radius: 50%;
+
+    animation: circleFloat 5s ease-in-out infinite;
+}
+
+.hero-image {
+    width: min(390px, 70%);
+
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    position: relative;
+
+    z-index: 2;
+
+    border: 9px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   SEÇÕES
+========================================================= */
+
+.section {
+    padding: 95px 0;
+
+    scroll-margin-top: calc(var(--header-height) + 20px);
+}
+
+.section-heading {
+    margin-bottom: 45px;
+
+    max-width: 750px;
+}
+
+.section-heading > span {
+    display: inline-flex;
+
+    margin-bottom: 10px;
+
+    color: var(--purple);
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.section-heading p {
+    margin-bottom: 12px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.section-heading h2 {
+    font-family: "Montserrat", sans-serif;
+
+    font-size: clamp(36px, 5vw, 58px);
+
+    line-height: 1.05;
+
+    letter-spacing: -2.5px;
+}
+
+.section-heading h2 span {
+    color: var(--purple);
+}
+
+
+/* =========================================================
+   SOBRE MIM
+========================================================= */
+
+.about {
+    padding-top: 85px;
+}
+
+.about .section-heading {
+    width: 100%;
+
+    max-width: 760px;
+
+    margin: 0 0 45px;
+
+    text-align: left;
+}
+
+.about .section-heading > span {
+    display: block;
+
+    margin-bottom: 9px;
+}
+
+.about .section-heading p {
+    margin: 0 0 12px;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    color: var(--muted);
+}
+
+.about .section-heading h2 {
+    margin: 0;
+
+    font-size: clamp(36px, 5vw, 58px);
+
+    line-height: 1.05;
+
+    letter-spacing: -2.5px;
+}
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+
+    gap: 55px;
+
+    align-items: start;
+
+    max-width: 1080px;
+
+    margin: 0 auto;
+}
+
+.about-text {
+    max-width: 650px;
+}
+
+.about-text p {
+    margin: 0 0 20px;
+
+    font-size: 15px;
+
+    line-height: 1.75;
+
+    color: var(--muted);
+}
+
+.about-text p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   CARD DE DESTAQUE SOBRE MIM
+========================================================= */
+
+.about-highlight {
+    width: 100%;
+
+    min-height: 230px;
+
+    padding: 30px;
+
+    background: var(--purple-light);
+
+    border: 1px solid #ddd2ff;
+
+    border-radius: var(--radius);
+
+    box-sizing: border-box;
+
+    margin-top: 0;
+}
+
+.highlight-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    background: var(--purple);
+
+    border-radius: 14px;
+
+    color: white;
+
+    font-size: 20px;
+}
+
+.about-highlight h3 {
+    margin: 0 0 10px;
+
+    font-size: 1.45rem;
+
+    line-height: 1.15;
+
+    color: var(--text);
+}
+
+.about-highlight p {
+    margin: 0;
+
+    font-size: 0.9rem;
+
+    line-height: 1.6;
+
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   PROJETOS
+========================================================= */
+
+.projects {
+    background: #f8f8f8;
+}
+
+.project-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 22px;
+
+    max-width: 1080px;
+
+    margin: 0 auto;
+}
+
+.project-card {
+    position: relative;
+
+    min-height: 370px;
+
+    padding: 34px;
+
+    border-radius: var(--radius);
+
+    background: #fff;
+
+    box-shadow: var(--shadow);
+
+    overflow: hidden;
+
+    transition: 0.35s;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+}
+
+.project-card.featured {
+    background: var(--purple-dark);
+
+    color: #fff;
+}
+
+.project-number {
+    position: absolute;
+
+    top: 20px;
+    right: 25px;
+
+    color: rgba(21, 21, 21, 0.10);
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 44px;
+
+    font-weight: 800;
+}
+
+.project-card.featured .project-number {
+    color: rgba(255, 255, 255, 0.08);
+}
+
+.project-icon {
+    width: 52px;
+    height: 52px;
+
+    border-radius: 14px;
+
+    background: var(--purple-light);
+
+    color: var(--purple);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+
+    margin-bottom: 22px;
+}
+
+.project-card.featured .project-icon {
+    background: rgba(255, 255, 255, 0.1);
+
+    color: #fff;
+}
+
+.project-type {
+    display: inline-block;
+
+    margin-bottom: 9px;
+
+    color: var(--purple);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.12em;
+}
+
+.project-card.featured .project-type {
+    color: #bfb3ff;
+}
+
+.project-card h3 {
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 27px;
+
+    margin-bottom: 14px;
+}
+
+.project-card p {
+    max-width: 500px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+.project-card.featured p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.project-tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin: auto 0 22px;
+
+    padding-top: 20px;
+}
+
+.project-tags span {
+    padding: 6px 10px;
+
+    border-radius: 50px;
+
+    border: 1px solid var(--border);
+
+    color: #666;
+
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+.project-card.featured .project-tags span {
+    color: #fff;
+
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.project-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    padding-bottom: 5px;
+
+    border-bottom: 1px solid currentColor;
+
+    width: fit-content;
+}
+
+
+/* =========================================================
+   HABILIDADES
+========================================================= */
+
+.skills {
+    background: var(--white);
+}
+
+.skills-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+
+    max-width: 1080px;
+
+    margin: 0 auto;
+}
+
+.skill-box {
+    min-height: 150px;
+
+    padding: 27px;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    background: #fff;
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.035);
+}
+
+.skill-box h3 {
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 17px;
+
+    margin-bottom: 18px;
+}
+
+.skill-box h3 i {
+    color: var(--purple);
+
+    margin-right: 7px;
+}
+
+.chips {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.chips span {
+    padding: 9px 12px;
+
+    border-radius: 9px;
+
+    background: var(--purple-light);
+
+    color: var(--purple-dark);
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+.chips span i {
+    color: var(--purple);
+
+    margin-right: 5px;
+}
+
+
+/* =========================================================
+   CREDENCIAIS
+========================================================= */
+
+.credentials {
+    background: var(--white);
+
+    scroll-margin-top: calc(var(--header-height) + 20px);
+}
+
+.credential-container {
+    max-width: 950px;
+
+    margin: 35px auto 0;
+}
+
+.credential-card {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 34px;
+
+    background: linear-gradient(
+        135deg,
+        #ffffff 0%,
+        #f8f6ff 100%
+    );
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.credential-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 25px 60px rgba(38, 24, 83, 0.13);
+}
+
+
+/* =========================================================
+   ÍCONE AWS
+========================================================= */
+
+.credential-icon {
+    min-width: 90px;
+
+    width: 90px;
+    height: 90px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--purple);
+
+    border-radius: 23px;
+
+    color: var(--white);
+
+    font-size: 46px;
+
+    box-shadow:
+        0 12px 30px rgba(112, 71, 232, 0.22);
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.credential-content {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 650px;
+}
+
+.credential-label {
+    display: inline-block;
+
+    margin-bottom: 7px;
+
+    font-size: 0.7rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+
+    color: var(--purple);
+
+    text-transform: uppercase;
+}
+
+.credential-content h3 {
+    margin: 0 0 7px;
+
+    font-size: 1.75rem;
+
+    font-weight: 800;
+
+    color: var(--text);
+}
+
+.credential-issuer {
+    margin: 0 0 15px;
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
+
+    color: var(--purple);
+}
+
+.credential-description {
+    margin: 0 0 18px;
+
+    color: var(--muted);
+
+    line-height: 1.65;
+
+    max-width: 600px;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   TAGS CREDENCIAL
+========================================================= */
+
+.credential-tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-bottom: 20px;
+}
+
+.credential-tags span {
+    padding: 7px 11px;
+
+    background: var(--purple-light);
+
+    border-radius: 999px;
+
+    color: var(--purple-dark);
+
+    font-size: 0.72rem;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   BOTÃO CREDENCIAL
+========================================================= */
+
+.credential-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 11px 17px;
+
+    background: var(--purple);
+
+    border-radius: 10px;
+
+    color: var(--white);
+
+    font-size: 0.82rem;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.credential-button:hover {
+    background: var(--purple-dark);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(112, 71, 232, 0.22);
+}
+
+
+/* =========================================================
+   DECORAÇÃO CREDENCIAL
+========================================================= */
+
+.credential-decoration {
+    position: absolute;
+
+    right: -30px;
+
+    bottom: -50px;
+
+    font-size: 190px;
+
+    color: rgba(112, 71, 232, 0.045);
+
+    transform: rotate(-10deg);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTATO
+========================================================= */
+
+.contact {
+    padding: 95px 0;
+
+    background: #f8f8f8;
+
+    scroll-margin-top: calc(var(--header-height) + 20px);
+}
+
+.contact-grid {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 0.85fr);
+
+    gap: 60px;
+
+    align-items: center;
+
+    max-width: 1080px;
+
+    margin: 0 auto;
+}
+
+.contact-label {
+    color: var(--purple);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.12em;
+}
+
+.contact-label i {
+    font-size: 6px;
+
+    margin-right: 6px;
+}
+
+.contact-info h2 {
+    margin-top: 15px;
+
+    max-width: 580px;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: clamp(38px, 5vw, 58px);
+
+    line-height: 1.02;
+
+    letter-spacing: -2.5px;
+}
+
+.contact-info h2 span {
+    color: var(--purple);
+}
+
+.contact-info > p {
+    max-width: 480px;
+
+    margin: 20px 0;
+
+    color: var(--muted);
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+.contact-email {
+    color: var(--purple-dark);
+
+    font-weight: 800;
+
+    border-bottom: 1px solid var(--purple-dark);
+
+    font-size: 14px;
+}
+
+.contact-email i {
+    color: var(--purple);
+
+    margin-right: 6px;
+}
+
+
+/* =========================================================
+   FORMULÁRIO
+========================================================= */
+
+.contact-box {
+    padding: 30px;
+
+    background: #fff;
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+}
+
+.contact-box h3 {
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 20px;
+
+    margin-bottom: 21px;
+}
+
+.input-group {
+    margin-bottom: 13px;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    padding: 13px 14px;
+
+    font-size: 13px;
+
+    outline: none;
+
+    background: #fafafa;
+
+    transition: 0.3s;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    background: #fff;
+
+    border-color: var(--purple);
+}
+
+.input-group textarea {
+    resize: vertical;
+
+    min-height: 120px;
+}
+
+.send-button {
+    width: 100%;
+
+    min-height: 48px;
+
+    border-radius: 10px;
+
+    background: var(--purple);
+
+    color: #fff;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.send-button:hover {
+    background: var(--purple-dark);
+
+    transform: translateY(-2px);
+}
+
+.send-button i {
+    margin-left: 8px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+    padding: 30px 0;
+
+    background: var(--purple-dark);
+
+    color: #fff;
+}
+
+.footer-top,
+.footer-bottom {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+.footer-socials {
+    display: flex;
+
+    gap: 22px;
+}
+
+.footer-socials a {
+    color: rgba(255, 255, 255, 0.75);
+
+    font-size: 12px;
+
+    transition: 0.3s;
+}
+
+.footer-socials a:hover {
+    color: #fff;
+}
+
+.footer-socials i {
+    margin-right: 5px;
+}
+
+.footer-bottom {
+    padding-top: 20px;
+
+    margin-top: 20px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    color: rgba(255, 255, 255, 0.5);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   ANIMAÇÕES
+========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(25px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+/* Sem JS, o conteúdo continua visível (progressive enhancement) */
+.no-js .reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+@keyframes floating {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes circleFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    :root {
+        --header-height: 82px;
+    }
+
+    .header {
+        padding: 0 30px;
+    }
+
+    .navbar {
+        gap: 18px;
+    }
+
+    .header-cv {
+        padding: 10px 15px;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr 0.85fr;
+
+        gap: 30px;
+    }
+
+    .hero h1 {
+        font-size: clamp(50px, 8vw, 75px);
+    }
+
+    .container,
+    .hero-container {
+        width: min(100% - 60px, 1120px);
+    }
+
+    .about-grid {
+        gap: 40px;
+    }
+
+    .contact-grid {
+        gap: 40px;
+    }
+}
+
+
+/* =========================================================
+   TABLET MENOR
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .navbar {
+        gap: 12px;
+    }
+
+    .navbar a {
+        font-size: 12px;
+    }
+
+    .header-cv {
+        display: none;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content {
+        padding-left: 0;
+    }
+
+    .hero-image-area {
+        min-height: 420px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-text {
+        max-width: 100%;
+    }
+
+    .about-highlight {
+        max-width: 600px;
+    }
+
+    .credential-card {
+        align-items: flex-start;
+    }
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 760px) {
+
+    :root {
+        --header-height: 72px;
+    }
+
+    .header {
+        height: 72px;
+
+        padding: 0 20px;
+    }
+
+    .header-cv {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+
+    /* MENU MOBILE */
+
+    .navbar {
+        position: fixed;
+
+        top: 72px;
+        left: 0;
+
+        width: 100%;
+
+        padding: 10px 20px 20px;
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 0;
+
+        background: rgba(248, 248, 248, 0.98);
+
+        border-bottom: 1px solid var(--border);
+
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar.open {
+        display: flex;
+    }
+
+    .navbar a {
+        width: 100%;
+
+        padding: 13px 0;
+
+        font-size: 14px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: auto;
+        padding: 65px 0 70px;
+    }
+
+    .hero-container {
+        width: calc(100% - 40px);
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+        min-height: auto;
+    }
+
+    .hero-content {
+        padding-left: 0;
+    }
+
+    .hero h1 {
+        font-size: clamp(50px, 17vw, 78px);
+        letter-spacing: -4px;
+    }
+
+    .hero h2 {
+        font-size: 21px;
+        margin-top: 22px;
+    }
+
+    .hero-content > p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .hero-buttons {
+        gap: 10px;
+    }
+
+    .btn {
+        min-height: 44px;
+
+        padding: 0 17px;
+    }
+
+    .hero-image-area {
+        min-height: 330px;
+
+        width: 100%;
+    }
+
+    .circle-bg {
+        width: 280px;
+    }
+
+    .hero-image {
+        width: 245px;
+    }
+
+
+    /* SEÇÕES */
+
+    .container {
+        width: calc(100% - 40px);
+    }
+
+    .section {
+        padding: 70px 0;
+    }
+
+    .section-heading {
+        margin-bottom: 35px;
+    }
+
+    .section-heading h2 {
+        font-size: clamp(34px, 10vw, 48px);
+        letter-spacing: -2px;
+    }
+
+
+    /* SOBRE */
+
+    .about {
+        padding-top: 65px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .about-text p {
+        font-size: 14px;
+
+        line-height: 1.75;
+    }
+
+    .about-highlight {
+        padding: 27px;
+        min-height: auto;
+    }
+
+
+    /* PROJETOS */
+
+    .project-grid {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .project-card {
+        min-height: auto;
+
+        padding: 28px;
+    }
+
+    .project-card h3 {
+        font-size: 25px;
+    }
+
+
+    /* HABILIDADES */
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .skill-box {
+        min-height: auto;
+        padding: 24px;
+    }
+
+
+    /* CREDENCIAL */
+
+    .credential-container {
+        margin-top: 25px;
+    }
+
+    .credential-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 27px;
+        gap: 22px;
+    }
+
+    .credential-icon {
+        width: 75px;
+        min-width: 75px;
+        height: 75px;
+        border-radius: 19px;
+        font-size: 37px;
+    }
+
+    .credential-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .credential-description {
+        font-size: 13px;
+    }
+
+    .credential-decoration {
+        font-size: 130px;
+
+        right: -25px;
+        bottom: -30px;
+    }
+
+
+    /* CONTATO */
+
+    .contact {
+        padding: 70px 0;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+    .contact-info h2 {
+        font-size: clamp(38px, 10vw, 50px);
+
+        letter-spacing: -2px;
+    }
+
+    .contact-info > p {
+        font-size: 14px;
+    }
+
+    .contact-email {
+        font-size: 13px;
+        word-break: break-word;
+    }
+
+    .contact-box {
+        padding: 24px;
+    }
+
+
+    /* FOOTER */
+
+    .footer-top,
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-socials {
+        flex-wrap: wrap;
+
+        gap: 15px;
+    }
+}
+
+
+/* =========================================================
+   CELULAR PEQUENO
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .hero {
+        padding-top: 55px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .hero-image-area {
+        min-height: 300px;
+    }
+
+    .circle-bg {
+        width: 250px;
+    }
+
+    .hero-image {
+        width: 220px;
+    }
+
+    .about .section-heading h2 {
+        font-size: 2.45rem;
+    }
+
+    .project-card {
+        padding: 24px;
+    }
+
+    .credential-card {
+        padding: 23px;
+    }
+
+    .credential-button {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .contact-box {
+        padding: 22px;
+    }
+}
+/* =========================================================
+   TELAS MUITO GRANDES
+========================================================= */
+@media (min-width: 1400px) {
+
+    .container,
+    .hero-container {
+        width: min(1160px, calc(100% - 100px));
+    }
+
+    .section {
+        padding: 105px 0;
+    }
+}
